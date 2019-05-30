@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import br.gov.caixa.sipan.automacao.core.BasePage;
+import br.gov.caixa.sipan.automacao.core.EvidenceGenerator;
 
 /**
 * @see [Page]: Classe que representa a tela de Busca.
@@ -23,8 +24,8 @@ public class BuscaPage extends BasePage {
 	private WebElement simCnpjButton;	
 
 
-	public BuscaPage(WebDriver driver) {
-		super(driver);
+	public BuscaPage(WebDriver driver, EvidenceGenerator evidenceGenerator) {
+		super(driver, evidenceGenerator);
 	}
 	
 	/**

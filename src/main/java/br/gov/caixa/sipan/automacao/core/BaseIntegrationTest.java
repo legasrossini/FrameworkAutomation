@@ -24,7 +24,6 @@ public abstract class BaseIntegrationTest {
 
 	private static EvidenceGenerator evidenceGenerator = null;
 
-
 	@BeforeClass
 	public static void setUp() throws Throwable {
 		initWebDriver();
@@ -90,5 +89,8 @@ public abstract class BaseIntegrationTest {
 		EvidenceGenerator.doc.close();
 	}
 
+	public static EvidenceGenerator getEvidenceGenerator() {
+		return evidenceGenerator;
+	}
 
 }

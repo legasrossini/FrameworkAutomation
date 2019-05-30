@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import br.gov.caixa.sipan.automacao.core.BasePage;
+import br.gov.caixa.sipan.automacao.core.EvidenceGenerator;
 
 /**
 * @see [Page]: Classe que representa a tela de Comunicacao.
@@ -32,8 +33,8 @@ public class ComunicacaoPage extends BasePage {
 	@FindBy(id = "idFormPrincipal:ns_Z7_8I441240MGSV10ATAM00VP1002_j_id518262956_1_7a1a732")
 	private WebElement mensagemSucessoText;
 		
-	public ComunicacaoPage(WebDriver driver) {
-		super(driver);
+	public ComunicacaoPage(WebDriver driver, EvidenceGenerator evidenceGenerator) {
+		super(driver, evidenceGenerator);
 	}
 	
 	public void preencherComunicacao(String meioDeComunicacao, String telefone, String mensagem) {

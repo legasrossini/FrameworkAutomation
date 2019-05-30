@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
@@ -23,30 +22,24 @@ import com.itextpdf.text.DocumentException;
  */
 public abstract class BasePage {
 	
-	private static EvidenceGenerator evidenceGenerator;
-
 	public static final int DEFAULT_WAIT_IN_MILLIS = 2500;
 	public static final int DEFAULT_TIMEOUT_IN_SECONDS = Integer.valueOf(System.getProperty("selenium.timeout.seconds", "60"));
 	
+	private EvidenceGenerator evidenceGenerator;
 	BaseIntegrationTest baseIntegrationTest;
 
 	private WebDriver driver;
 	private Wait<WebDriver> wait;
 
-	public BasePage(WebDriver driver) {
+	public BasePage(WebDriver driver, EvidenceGenerator evidenceGenerator) {
 		this.driver = driver;
+		this.evidenceGenerator = evidenceGenerator;
 		
 		this.wait = new FluentWait<WebDriver>(driver)  
                 .withTimeout(Duration.ofSeconds(2))
                 .pollingEvery(Duration.ofSeconds(2));
 		
-		PageFactory.initElements (driver, this);
-		
-		try {
-			evidenceGenerator = new EvidenceGenerator(driver);
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
+		LocalPageFactory.initElements(driver, this);
 	}
 	
 	public WebElement findId(String id, String msg) {

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import br.gov.caixa.sipan.automacao.core.BasePage;
+import br.gov.caixa.sipan.automacao.core.EvidenceGenerator;
 
 /**
 * @see [Page]: Classe que representa a tela de Endereco.
@@ -50,8 +51,8 @@ public class EnderecosPage extends BasePage {
 	@FindBy(id = "idFormPrincipal:cmdLnkProximo")
 	private WebElement proximoButton;
 	
-	public EnderecosPage(WebDriver driver) {
-		super(driver);	
+	public EnderecosPage(WebDriver driver, EvidenceGenerator evidenceGenerator) {
+		super(driver, evidenceGenerator);	
 	}
 	
 	public void preencherEndereco(String cep, String tipologradouro, String numero, String complemento, String tipoImovel, String referencia, String finalidadeImovel) {

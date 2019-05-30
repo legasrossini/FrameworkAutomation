@@ -44,6 +44,7 @@ public class EvidenceGenerator {
 	private static Font fontTxt = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, person);
 	
 	private WebDriver driver;
+
 	public static Document doc;
 	
 	public static Image print;
@@ -227,5 +228,9 @@ public class EvidenceGenerator {
 	public String pegarNavegadorVersao() {
 		Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
 		return caps.getVersion();			
+	}
+	
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
 	}
 }

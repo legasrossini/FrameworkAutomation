@@ -38,9 +38,10 @@ public class SeleniumPageRunner extends BlockJUnit4ClassRunner {
 			return;
 		}
 		WebDriver driver = ((BaseIntegrationTest) test).getDriver();
+		EvidenceGenerator evidenceGenerator = BaseIntegrationTest.getEvidenceGenerator();
 
 		PageObjectDependencyInjector injector = new PageObjectDependencyInjector(
-				new PageObjectInstantiator(driver));
+				new PageObjectInstantiator(driver, evidenceGenerator));
 		injector.injectDependenciesInto(test);
 	}
 

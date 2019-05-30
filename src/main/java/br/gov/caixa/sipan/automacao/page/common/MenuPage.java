@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import br.gov.caixa.sipan.automacao.core.BasePage;
+import br.gov.caixa.sipan.automacao.core.EvidenceGenerator;
 
 /**
 * @see [Page]: Classe que representa a tela de Menu.
@@ -19,8 +20,8 @@ public class MenuPage extends BasePage {
 	@FindBy(xpath = "/html/body/div[1]/div[3]/div/div/ul/li[3]/a")
 	private WebElement pessoaFisicaLink;	
 
-	public MenuPage(WebDriver driver) throws Throwable {
-		super(driver);
+	public MenuPage(WebDriver driver, EvidenceGenerator evidenceGenerator) throws Throwable {
+		super(driver, evidenceGenerator);
 	}
 	
 	/**

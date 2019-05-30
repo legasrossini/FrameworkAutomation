@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import br.gov.caixa.sipan.automacao.core.BasePage;
+import br.gov.caixa.sipan.automacao.core.EvidenceGenerator;
 
 /**
 * @see [Page]: Classe que representa a tela de Dados Cadastrais.
@@ -86,8 +87,8 @@ public class RendasPage extends BasePage {
 	@FindBy(id = "frmSipanPessoaFisica:cmdLnkProximo")
 	private WebElement proximoButton;
 	
-	public RendasPage(WebDriver driver) {
-		super(driver);		
+	public RendasPage(WebDriver driver, EvidenceGenerator evidenceGenerator) {
+		super(driver, evidenceGenerator);		
 	}
 	
 	public void preencherRenda(String tipoRenda, String caracteristicaRenda, String tipoFontePagadora, String cpfOuCnpj) {

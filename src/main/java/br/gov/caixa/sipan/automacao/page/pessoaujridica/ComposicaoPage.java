@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import br.gov.caixa.sipan.automacao.core.BasePage;
+import br.gov.caixa.sipan.automacao.core.EvidenceGenerator;
 
 /**
 * @see [Page]: Classe que representa a tela de Composicao.
@@ -47,8 +48,8 @@ public class ComposicaoPage extends BasePage {
 	@FindBy(id = "idFormPrincipal:cmdLnkProximo")
 	private WebElement proximoButton;
 	
-	public ComposicaoPage(WebDriver driver) {
-		super(driver);	
+	public ComposicaoPage(WebDriver driver, EvidenceGenerator evidenceGenerator) {
+		super(driver, evidenceGenerator);	
 	}
 	
 	public void preencherComposicao (String ultimaAlteracao, String tipoPessoa, String cpfOuCnpj, String tipoVinculo, String porcentagem) {
